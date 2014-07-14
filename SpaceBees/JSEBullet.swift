@@ -37,6 +37,7 @@ class JSEBullet:SKSpriteNode {
         }
         startPosition.y = y + 1
         position = startPosition
+        zPosition = 1
         physicsBody = SKPhysicsBody(rectangleOfSize: size)
         physicsBody.affectedByGravity = false
         physicsBody.contactTestBitMask = contactMask

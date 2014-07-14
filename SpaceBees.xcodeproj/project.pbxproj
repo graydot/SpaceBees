@@ -18,6 +18,7 @@
 		804315CF197443DD0009342A /* JSEBullet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804315C5197443DD0009342A /* JSEBullet.swift */; };
 		804315D0197443DD0009342A /* JSEShip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804315C6197443DD0009342A /* JSEShip.swift */; };
 		804315E7197445300009342A /* SpaceBees_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804315E6197445300009342A /* SpaceBees_Tests.swift */; };
+		80FE1A5B19747B4B00BA1334 /* JSEBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FE1A5A19747B4B00BA1334 /* JSEBackground.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		804315E5197445300009342A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		804315E6197445300009342A /* SpaceBees_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceBees_Tests.swift; sourceTree = "<group>"; };
 		80537A8619712A2E0015AA28 /* SpaceBees.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceBees.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		80FE1A5A19747B4B00BA1334 /* JSEBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSEBackground.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				804315C4197443DD0009342A /* JSEBee.swift */,
 				804315C5197443DD0009342A /* JSEBullet.swift */,
 				804315C6197443DD0009342A /* JSEShip.swift */,
+				80FE1A5A19747B4B00BA1334 /* JSEBackground.swift */,
 			);
 			path = SpaceBees;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				804315CA197443DD0009342A /* GameScene.swift in Sources */,
+				80FE1A5B19747B4B00BA1334 /* JSEBackground.swift in Sources */,
 				804315CE197443DD0009342A /* JSEBee.swift in Sources */,
 				804315CB197443DD0009342A /* GameViewController.swift in Sources */,
 				804315C7197443DD0009342A /* AppDelegate.swift in Sources */,

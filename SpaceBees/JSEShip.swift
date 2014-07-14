@@ -10,16 +10,18 @@ import Foundation
 import SpriteKit
 
 class JSEShip:SKSpriteNode {
+    var alive = true
     init() {
         var texture = SKTexture(imageNamed: "Spaceship")
         var size = texture.size()
         var color = UIColor.blackColor()
+
         
         super.init(texture: texture, color: color, size: size)
         
 
-        xScale = 0.2
-        yScale = 0.2
+        xScale = 0.15
+        yScale = 0.15
         physicsBody = SKPhysicsBody(rectangleOfSize: self.size)
         physicsBody.affectedByGravity = false
         physicsBody.categoryBitMask = 0x1 << 4
