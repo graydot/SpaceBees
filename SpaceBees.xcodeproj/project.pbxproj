@@ -33,7 +33,7 @@
 		8011FC241971BE6300FEDEBD /* JSEBee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSEBee.swift; sourceTree = "<group>"; };
 		8011FC261971BE6C00FEDEBD /* JSEShip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSEShip.swift; sourceTree = "<group>"; };
 		8011FC281971BE7500FEDEBD /* JSEBullet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSEBullet.swift; sourceTree = "<group>"; };
-		80537A8619712A2E0015AA28 /* FlappyBird.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlappyBird.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		80537A8619712A2E0015AA28 /* SpaceBees.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceBees.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80537A8A19712A2E0015AA28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80537A8B19712A2E0015AA28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80537A8D19712A2E0015AA28 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -41,7 +41,7 @@
 		80537A9119712A2E0015AA28 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		80537A9419712A2E0015AA28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		80537A9619712A2E0015AA28 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		80537A9C19712A2E0015AA28 /* FlappyBirdTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlappyBirdTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		80537A9C19712A2E0015AA28 /* SpaceBeesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpaceBeesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		80537AA119712A2E0015AA28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80537AA219712A2E0015AA28 /* FlappyBirdTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlappyBirdTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -67,7 +67,7 @@
 		80537A7D19712A2E0015AA28 = {
 			isa = PBXGroup;
 			children = (
-				80537A8819712A2E0015AA28 /* FlappyBird */,
+				80537A8819712A2E0015AA28 /* SpaceBees */,
 				80537A9F19712A2E0015AA28 /* FlappyBirdTests */,
 				80537A8719712A2E0015AA28 /* Products */,
 			);
@@ -76,13 +76,13 @@
 		80537A8719712A2E0015AA28 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				80537A8619712A2E0015AA28 /* FlappyBird.app */,
-				80537A9C19712A2E0015AA28 /* FlappyBirdTests.xctest */,
+				80537A8619712A2E0015AA28 /* SpaceBees.app */,
+				80537A9C19712A2E0015AA28 /* SpaceBeesTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		80537A8819712A2E0015AA28 /* FlappyBird */ = {
+		80537A8819712A2E0015AA28 /* SpaceBees */ = {
 			isa = PBXGroup;
 			children = (
 				80537A8B19712A2E0015AA28 /* AppDelegate.swift */,
@@ -96,6 +96,7 @@
 				8011FC261971BE6C00FEDEBD /* JSEShip.swift */,
 				8011FC281971BE7500FEDEBD /* JSEBullet.swift */,
 			);
+			name = SpaceBees;
 			path = FlappyBird;
 			sourceTree = "<group>";
 		};
@@ -127,9 +128,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		80537A8519712A2E0015AA28 /* FlappyBird */ = {
+		80537A8519712A2E0015AA28 /* SpaceBees */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 80537AA619712A2E0015AA28 /* Build configuration list for PBXNativeTarget "FlappyBird" */;
+			buildConfigurationList = 80537AA619712A2E0015AA28 /* Build configuration list for PBXNativeTarget "SpaceBees" */;
 			buildPhases = (
 				80537A8219712A2E0015AA28 /* Sources */,
 				80537A8319712A2E0015AA28 /* Frameworks */,
@@ -139,14 +140,14 @@
 			);
 			dependencies = (
 			);
-			name = FlappyBird;
+			name = SpaceBees;
 			productName = FlappyBird;
-			productReference = 80537A8619712A2E0015AA28 /* FlappyBird.app */;
+			productReference = 80537A8619712A2E0015AA28 /* SpaceBees.app */;
 			productType = "com.apple.product-type.application";
 		};
-		80537A9B19712A2E0015AA28 /* FlappyBirdTests */ = {
+		80537A9B19712A2E0015AA28 /* SpaceBeesTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 80537AA919712A2E0015AA28 /* Build configuration list for PBXNativeTarget "FlappyBirdTests" */;
+			buildConfigurationList = 80537AA919712A2E0015AA28 /* Build configuration list for PBXNativeTarget "SpaceBeesTests" */;
 			buildPhases = (
 				80537A9819712A2E0015AA28 /* Sources */,
 				80537A9919712A2E0015AA28 /* Frameworks */,
@@ -157,9 +158,9 @@
 			dependencies = (
 				80537A9E19712A2E0015AA28 /* PBXTargetDependency */,
 			);
-			name = FlappyBirdTests;
+			name = SpaceBeesTests;
 			productName = FlappyBirdTests;
-			productReference = 80537A9C19712A2E0015AA28 /* FlappyBirdTests.xctest */;
+			productReference = 80537A9C19712A2E0015AA28 /* SpaceBeesTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -180,7 +181,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 80537A8119712A2E0015AA28 /* Build configuration list for PBXProject "FlappyBird" */;
+			buildConfigurationList = 80537A8119712A2E0015AA28 /* Build configuration list for PBXProject "SpaceBees" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -193,8 +194,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				80537A8519712A2E0015AA28 /* FlappyBird */,
-				80537A9B19712A2E0015AA28 /* FlappyBirdTests */,
+				80537A8519712A2E0015AA28 /* SpaceBees */,
+				80537A9B19712A2E0015AA28 /* SpaceBeesTests */,
 			);
 		};
 /* End PBXProject section */
@@ -246,7 +247,7 @@
 /* Begin PBXTargetDependency section */
 		80537A9E19712A2E0015AA28 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 80537A8519712A2E0015AA28 /* FlappyBird */;
+			target = 80537A8519712A2E0015AA28 /* SpaceBees */;
 			targetProxy = 80537A9D19712A2E0015AA28 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -347,7 +348,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = FlappyBird/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SpaceBees;
 			};
 			name = Debug;
 		};
@@ -358,7 +359,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = FlappyBird/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SpaceBees;
 			};
 			name = Release;
 		};
@@ -376,7 +377,7 @@
 				);
 				INFOPLIST_FILE = FlappyBirdTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SpaceBeesTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Debug;
@@ -391,7 +392,7 @@
 				);
 				INFOPLIST_FILE = FlappyBirdTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SpaceBeesTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Release;
@@ -399,7 +400,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		80537A8119712A2E0015AA28 /* Build configuration list for PBXProject "FlappyBird" */ = {
+		80537A8119712A2E0015AA28 /* Build configuration list for PBXProject "SpaceBees" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				80537AA419712A2E0015AA28 /* Debug */,
@@ -408,7 +409,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		80537AA619712A2E0015AA28 /* Build configuration list for PBXNativeTarget "FlappyBird" */ = {
+		80537AA619712A2E0015AA28 /* Build configuration list for PBXNativeTarget "SpaceBees" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				80537AA719712A2E0015AA28 /* Debug */,
@@ -417,7 +418,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		80537AA919712A2E0015AA28 /* Build configuration list for PBXNativeTarget "FlappyBirdTests" */ = {
+		80537AA919712A2E0015AA28 /* Build configuration list for PBXNativeTarget "SpaceBeesTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				80537AAA19712A2E0015AA28 /* Debug */,
