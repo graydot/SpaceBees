@@ -17,8 +17,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.contactDelegate = self
         
         let frame = self.frame
-        let topOffset:Float = 160
-        let bottomOffset:Float = 40
+        let topOffset:CGFloat = 160
+        let bottomOffset:CGFloat = 40
         let xCenter = (frame.origin.x + frame.size.width)/2
         let yMid = (frame.origin.y + frame.size.height)/2
         let topOffsettedY = frame.origin.y + frame.size.height - topOffset;
