@@ -1,6 +1,6 @@
 //
 //  GameScene.swift
-//  FlappyBird
+//  SpaceBees
 //
 //  Created by Jeba Singh Emmanuel on 7/12/14.
 //  Copyright (c) 2014 Jeba Singh Emmanuel. All rights reserved.
