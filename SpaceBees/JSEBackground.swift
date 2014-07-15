@@ -15,6 +15,16 @@ class JSEBackground:SKSpriteNode{
         super.init(texture: texture, color: UIColor.blackColor(), size: texture.size())
         anchorPoint = CGPointZero
         self.position = position
+        zPosition = 0
         name = "background"
+    }
+    
+    func resetPosition(){
+        position.y = position.y - 3
+        let bgTopY = position.y + size.height
+        if bgTopY < 0 {
+            position.y = size.height + bgTopY
+        }
+
     }
 }

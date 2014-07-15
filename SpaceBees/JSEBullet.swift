@@ -41,6 +41,7 @@ class JSEBullet:SKSpriteNode {
         physicsBody = SKPhysicsBody(rectangleOfSize: size)
         physicsBody.affectedByGravity = false
         physicsBody.contactTestBitMask = contactMask
+        physicsBody.collisionBitMask = contactMask
 
         
         let shootAction = SKAction.moveTo(endPosition, duration: 2)
