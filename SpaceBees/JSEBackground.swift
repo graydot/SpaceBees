@@ -9,22 +9,44 @@
 import Foundation
 import SpriteKit
 
-class JSEBackground:SKSpriteNode{
-    init(position:CGPoint){
-        var texture = SKTexture(imageNamed: "SpaceBackground")
-        super.init(texture: texture, color: UIColor.blackColor(), size: texture.size())
-        anchorPoint = CGPointZero
-        self.position = position
-        zPosition = 0
-        name = "background"
+class JSEBackground:NSObject{
+    var backgrounds:[SKSpriteNode] = []
+    var delegate:SpaceMapDelegate?
+    init(){
+        
+        // insert space background
+        var texture = SKTexture(imageNamed: "SpaceBackground2")
+        var background = SKSpriteNode(texture: texture, color: UIColor.blackColor(), size: texture.size())
+        background.anchorPoint = CGPointZero
+        background.position = CGPointZero
+//        background.zPosition = 0
+        background.name = "Background"
+        backgrounds.append(background)
+        delegate?.didAddNodeToSpace(background)
+        
+        background = SKSpriteNode(texture: texture, color: UIColor.blackColor(), size: texture.size())
+        background.anchorPoint = CGPointZero
+        background.position = CGPoint(x: CGPointZero.x, y: CGPointZero.y + texture.size().height)
+        background.name = "Background"
+        backgrounds.append(background)
+        delegate?.didAddNodeToSpace(background)
     }
     
-    func resetPosition(){
-        position.y = position.y - 3
-        let bgTopY = position.y + size.height
-        if bgTopY < 0 {
-            position.y = size.height + bgTopY
+    // yeah this is crappy
+    func addBackgroundToSpace(){
+        for bg in backgrounds{
+            delegate?.didAddNodeToSpace(bg)
         }
+    }
+    
+    func scroll(){
+        for bg in backgrounds{
+            bg.position.y = bg.position.y - 3
+            let bgTopY = bg.position.y + bg.size.height
+            if bgTopY < 0 {
+                bg.position.y = bg.size.height + bgTopY
+            }
 
+        }
     }
 }

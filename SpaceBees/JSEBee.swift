@@ -10,19 +10,28 @@ import Foundation
 import SpriteKit
 
 class JSEBee:SKSpriteNode {
-    let reloadTime = Int(arc4random()) % 5 + 1
+    let reloadTime = NSTimeInterval(arc4random()) % 5 + 1
+    var timer:NSTimer?
     
     var direction = "Left"
-    var alive = true
-    var reloadTimer = 0
-    init(position:CGPoint) {
+    var alive:Bool = true {
+    willSet(newAlive){
+        if !newAlive {
+            timer?.invalidate()
+        }
+    }
+    }
+    var delegate:SpaceMapDelegate?
+    
+    init(position:CGPoint, delegate:SpaceMapDelegate) {
         var texture = SKTexture(imageNamed: "Bee")
         var size = texture.size()
         var color = UIColor.whiteColor()
 
         super.init(texture: texture, color: color, size: size)
-        xScale = 0.20
-        yScale = 0.20
+        self.delegate = delegate
+        xScale = 0.1
+        yScale = 0.1
         self.position = position
         zPosition = 1
         self.name = "Bee"
@@ -30,36 +39,29 @@ class JSEBee:SKSpriteNode {
         physicsBody.affectedByGravity = false
         physicsBody.categoryBitMask = 0x1 << 3
         physicsBody.collisionBitMask = 0
+        
+        self.delegate?.didAddBeeToSpace(self)
+        move()
+        timer = NSTimer.scheduledTimerWithTimeInterval(reloadTime, target: self, selector: "fireBullet", userInfo: nil, repeats: true)
+
     }
     
-    func fireBulletTo(x:CGFloat?, y:CGFloat?) -> SKSpriteNode?{
-        if alive && canFire(){
-            let bulletPosition = CGPoint(x: position.x, y: position.y - size.height/2 )
-            var endPoint = position
-            if let xValue = x{
-                endPoint.x = xValue
-            }
-            
-            if let yValue = y{
-                endPoint.y = yValue
-            }
-            
-            return JSEBullet(type: "pollenBullet", startPosition: bulletPosition, endPosition: endPoint)
-            
+    func fireBullet(){
+        if !alive {
+            return
         }
-        return nil
+        let bulletPosition = CGPoint(x: position.x, y: position.y - size.height/2 )
+        var endPoint = position
+        endPoint.y = -100
+        let bullet = JSEBullet(type: "pollenBullet", startPosition: bulletPosition, endPosition: endPoint, delegate: self.delegate)
     }
     
-    func canFire()-> Bool{
-        if reloadTimer == 0 {
-            // I can fire
-            
-            reloadTimer = reloadTime
-            return true
-            
-        } else {
-            reloadTimer -= 1
-            return false
+    func setAlive(newAlive:Bool){
+        print("here")
+        self.alive = newAlive
+        
+        if newAlive == false{
+            timer?.invalidate()
         }
     }
     
@@ -91,10 +93,13 @@ class JSEBee:SKSpriteNode {
         }
         
         
-        // create action
-        // start action and call move again
         runAction(generateAction(), completion: {() in
             self.move()
         })
     }
+    
+    deinit{
+        print("going out")
+    }
+    
 }

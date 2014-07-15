@@ -8,101 +8,93 @@
 
 import SpriteKit
 
-class GameScene: SKScene, SKPhysicsContactDelegate, UIAlertViewDelegate {
-    let spaceShip = JSEShip()
-    var nodes:[SKSpriteNode] = []
-    var timer:NSTimer?
+protocol SpaceMapDelegate{
+    var spaceShip:JSEShip {get set}
+    var bees:[JSEBee] {get set}
+    var bullets: [JSEBullet] {get set}
+    var background:JSEBackground {get set}
+    func didAddNodeToSpace(node:SKSpriteNode)
+    func didAddBulletToSpace(bullet:JSEBullet)
+    func didAddBeeToSpace(bee:JSEBee)
+    func getSpaceFrame()->CGRect
+}
+
+class GameScene: SKScene, SKPhysicsContactDelegate, UIAlertViewDelegate, SpaceMapDelegate {
+    var spaceShip:JSEShip = JSEShip()
+    var bees: [JSEBee] = []
+    var bullets: [JSEBullet] = []
+    var background:JSEBackground = JSEBackground()
     var gameStopped = false
 
     override func didMoveToView(view: SKView) {
         
         self.physicsWorld.contactDelegate = self
-        // insert space background
-        let background1 = JSEBackground(position: CGPoint(x: 0, y: 0))
-        self.addChild(background1)
-        self.addChild(JSEBackground(position: CGPoint(x: 0, y: background1.size.height)))
+        spaceShip.delegate = self
+        background.delegate = self
+        background.addBackgroundToSpace()
 
         startGame()
     }
     
-    func firePollens(){
-        for node in nodes{
-            if let bee = node as? JSEBee{
-                if let bullet = bee.fireBulletTo(nil, y: frame.origin.y - 100){
-                    self.addChild(bullet)
-                }
-            }
-        }
-
-    }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         for touch: AnyObject in touches {
             let location = touch.locationInNode(self)
-            
-            spaceShip.moveTo(location){
-                let bulletPosition = CGPoint(x: self.spaceShip.position.x, y: self.spaceShip.position.y + self.spaceShip.size.height/2 ) 
-                let topOfScreen = CGPointMake(self.spaceShip.position.x, (self.frame.origin.y + self.frame.size.height + 100))
-                
-                var bullet = JSEBullet(type: "shipBullet", startPosition: bulletPosition, endPosition: topOfScreen)
-                self.addChild(bullet)
-                self.nodes.append(bullet)
-
-            }
-            
-
+            spaceShip.moveTo(location)
         }
     }
    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
         
-        if !gameStopped{
-            self.enumerateChildNodesWithName("background", usingBlock: {(node, stop) in
-                var spriteNode = node as JSEBackground
-                spriteNode.resetPosition()
-            })
-            
-            var beeCount = 0
-            self.enumerateChildNodesWithName("Bee", usingBlock: {(node, stop) in
-                let bee = node as JSEBee
-                
-                if bee.alive {
-                    beeCount++
-                }
-                })
-            
-            if beeCount == 0 {
-                endGame()
-                UIAlertView(title: "Victory", message: "You have won the Bee Wars!", delegate: self, cancelButtonTitle: "Ok!").show()
-            }
-            
-            if !spaceShip.alive {
-                endGame()
-                UIAlertView(title: "Failure", message: "You underestimated the Bees. Better luck next time.", delegate: nil, cancelButtonTitle: "Ok!").show()
-                
-            }
-
+        if gameStopped {
+            return
         }
         
+        background.scroll()
     }
     
-    func didBeginContact(contact: SKPhysicsContact!) {
+    func didEndContact(contact: SKPhysicsContact!) {
         let fadeAnimation = SKAction.fadeOutWithDuration(0.5)
         let nodeA = contact.bodyA.node
         let nodeB = contact.bodyB.node
         nodeA.runAction(fadeAnimation, completion: {() in
             nodeA.removeFromParent()
-            if let bee = nodeA as? JSEBee{
-                bee.alive = false
-            } else if let ship = nodeA as? JSEShip{
-                ship.alive = false
-            }
         })
         nodeB.removeFromParent()
         
+        if let bee = nodeA as? JSEBee{
+            bee.alive = false
+            // find bee
+            
+            var index:Int?
+            for(var i=0; i<self.bees.count; i++){
+                if bee.isEqual(self.bees[i]){
+                    index = i
+                }
+            }
+            
+            if index{
+                self.bees.removeAtIndex(index!)
+            }
+        } else if let ship = nodeA as? JSEShip{
+            ship.destroyed = true
+        }
+
+        checkGameStatus()
+    }
+    
+    
+    func checkGameStatus(){
+        if bees.count == 0 {
+            UIAlertView(title: "Victory", message: "You have won the Bee Wars!", delegate: self, cancelButtonTitle: "Ok!").show()
+            endGame()
+        } else if spaceShip.destroyed {
+            UIAlertView(title: "Failure", message: "You underestimated the Bees. Better luck next time.", delegate: self, cancelButtonTitle: "Ok!").show()
+            endGame()
+        }
         
-        
+
     }
     
     func startGame(){
@@ -116,35 +108,53 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIAlertViewDelegate {
 
         
         // insert bees
-        let bee1 = JSEBee(position: CGPointMake(xCenter - 100, topOffsettedY - 30))
-        let bee2 = JSEBee(position: CGPointMake(xCenter + 100, topOffsettedY + 30))
-        
-        self.addChild(bee1)
-        self.addChild(bee2)
-        bee1.move()
-        bee2.move()
-        nodes.append(bee1)
-        nodes.append(bee2)
+        let bee1 = JSEBee(position: CGPointMake(xCenter - 100, topOffsettedY - 30), delegate:self)
+        let bee2 = JSEBee(position: CGPointMake(xCenter + 100, topOffsettedY + 30), delegate:self)
         
         spaceShip.position = CGPoint(x: xCenter, y: bottomOffset)
-        self.addChild(spaceShip)
+        spaceShip.destroyed = false
+        addChild(spaceShip)
         
-        timer = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "firePollens", userInfo: nil, repeats: true)
         gameStopped = false
     }
     func endGame(){
-        
-        for node in nodes{
-            node.removeFromParent()
-        }
-        timer?.invalidate()
-        spaceShip.removeFromParent()
         gameStopped = true
+        for bee in bees{
+            bee.alive = false
+            bee.removeFromParent()
+        }
+        if !spaceShip.destroyed{
+            spaceShip.destroyed = true
+            spaceShip.removeFromParent()
+        }
+        
+        for bullet in bullets{
+            bullet.removeFromParent()
+        }
+
     }
     
     func alertView(alertView: UIAlertView!,
         didDismissWithButtonIndex buttonIndex: Int){
         startGame()
+    }
+    
+    func didAddBulletToSpace(bullet: JSEBullet) {
+        self.addChild(bullet)
+        bullets.append(bullet)
+    }
+    
+    func didAddBeeToSpace(bee: JSEBee) {
+        self.addChild(bee)
+        bees.append(bee)
+    }
+    
+    func didAddNodeToSpace(node:SKSpriteNode){
+        self.addChild(node)
+    }
+    
+    func getSpaceFrame() -> CGRect {
+        return self.frame
     }
     
 }

@@ -10,23 +10,25 @@ import Foundation
 import SpriteKit
 
 class JSEBullet:SKSpriteNode {
-    init(type:String, var startPosition: CGPoint, endPosition: CGPoint) {
+    var delegate:SpaceMapDelegate?
+    init(type:String, var startPosition: CGPoint, endPosition: CGPoint, delegate:SpaceMapDelegate?) {
         var color:UIColor
         var size:CGSize
         var contactMask:UInt32
         
         if type == "shipBullet"{
             color = UIColor.redColor()
-            size = CGSize(width: 10, height: 30)
+            size = CGSize(width: 4, height: 15)
             contactMask = 0x1 << 3
         } else {
-            color = UIColor.yellowColor()
-            size = CGSize(width: 10, height: 10)
+            color = UIColor.greenColor()
+            size = CGSize(width: 5, height: 4)
             contactMask = 0x1 << 4
         }
         
 
         super.init(texture: nil, color: color, size: size)
+        self.delegate = delegate
         
         var y:CGFloat
         
@@ -42,8 +44,8 @@ class JSEBullet:SKSpriteNode {
         physicsBody.affectedByGravity = false
         physicsBody.contactTestBitMask = contactMask
         physicsBody.collisionBitMask = contactMask
-
-        
+        self.delegate?.didAddBulletToSpace(self)
+        // find vector
         let shootAction = SKAction.moveTo(endPosition, duration: 2)
         runAction(shootAction)
 
