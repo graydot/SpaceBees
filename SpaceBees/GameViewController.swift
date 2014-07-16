@@ -24,8 +24,9 @@ extension SKNode {
     }
 }
 
-class GameViewController: UIViewController {
-
+class GameViewController: UIViewController, GameStatusDelegate, GameStatusControllerDelegate {
+    weak var scene:GameScene?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -40,13 +41,27 @@ class GameViewController: UIViewController {
             /* Set the scale mode to scale to fit the window */
             scene.size = skView.bounds.size
             scene.scaleMode = .AspectFill
-            
+            scene.gameDelegate = self
+            self.scene = scene
             skView.presentScene(scene)
         }
+    }
+    
+    func didEndGame(level: Int, won: Bool) {
+        println("Gonna call view \(won)")
+        var gc = GameStatusController()
+        gc.level = level
+        gc.won = won
+        presentViewController(gc, animated: true, completion: nil)
+        gc.delegate = self
     }
 
     override func shouldAutorotate() -> Bool {
         return true
+    }
+    
+    func didDismiss() {
+        scene?.startGame()
     }
 
     override func supportedInterfaceOrientations() -> Int {

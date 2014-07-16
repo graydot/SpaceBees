@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6185.7" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6181.2"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GameStatusController" customModule="SpaceBees" customModuleProvider="target">
+            <connections>
+                <outlet property="playButton" destination="r9t-BA-19O" id="ZvC-3n-hg6"/>
+                <outlet property="resultText" destination="fnG-Ka-0U5" id="4Xh-jw-c0A"/>
+                <outlet property="view" destination="iN0-l3-epB" id="W1Q-m6-yti"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SpaceBackground2" translatesAutoresizingMaskIntoConstraints="NO" id="uCf-q6-mb6">
+                    <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r9t-BA-19O">
+                    <rect key="frame" x="100" y="325" width="280" height="30"/>
+                    <state key="normal" title="Play Again!">
+                        <color key="titleColor" red="1" green="0.15315720199999999" blue="0.26003186119999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" red="0.91605839420000001" green="0.58029197079999995" blue="0.054744525549999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="didClickPlay" destination="-1" eventType="touchUpInside" id="YKv-BV-a0V"/>
+                    </connections>
+                </button>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="440" translatesAutoresizingMaskIntoConstraints="NO" id="fnG-Ka-0U5">
+                    <rect key="frame" x="20" y="100" width="440" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="uCf-q6-mb6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="0Pb-Y7-XdC"/>
+                <constraint firstItem="uCf-q6-mb6" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="4xJ-0m-uLd"/>
+                <constraint firstAttribute="trailing" secondItem="uCf-q6-mb6" secondAttribute="trailing" id="801-33-djH"/>
+                <constraint firstAttribute="trailing" secondItem="fnG-Ka-0U5" secondAttribute="trailing" constant="20" id="Nex-HZ-lvs"/>
+                <constraint firstItem="r9t-BA-19O" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="100" id="fNr-VG-dcX"/>
+                <constraint firstAttribute="trailing" secondItem="r9t-BA-19O" secondAttribute="trailing" constant="100" id="o4t-VM-8be"/>
+                <constraint firstItem="fnG-Ka-0U5" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="qa5-Q8-k1k"/>
+                <constraint firstAttribute="bottom" secondItem="uCf-q6-mb6" secondAttribute="bottom" id="tW2-Q6-M78"/>
+                <constraint firstItem="fnG-Ka-0U5" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="100" id="vaR-6o-ehs"/>
+                <constraint firstAttribute="bottom" secondItem="r9t-BA-19O" secondAttribute="bottom" constant="125" id="vkA-M9-Rso"/>
+            </constraints>
+            <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="SpaceBackground2" width="2321" height="1024"/>
+    </resources>
+</document>

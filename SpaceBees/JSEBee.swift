@@ -10,8 +10,9 @@ import Foundation
 import SpriteKit
 
 class JSEBee:SKSpriteNode {
-    let reloadTime = NSTimeInterval(arc4random()) % 5 + 1
+    let reloadTime = NSTimeInterval(arc4random()) % 2 + 1
     var timer:NSTimer?
+    var moveSpeed = drand48() + 1
     
     var direction = "Left"
     var alive:Bool = true {
@@ -82,8 +83,8 @@ class JSEBee:SKSpriteNode {
         }
         endPoint = CGPoint(x:xTarget, y:self.position.y)
         let xDelta = position.x - xTarget
-        let duration = xDelta/fullDistance * 2
-        return SKAction.moveTo(endPoint, duration: abs(duration))
+        let duration = xDelta/fullDistance * moveSpeed
+        return SKAction.moveTo(endPoint, duration: NSTimeInterval(abs(duration)))
     }
     
     func move(){

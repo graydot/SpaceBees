@@ -18,6 +18,10 @@
 		804315CF197443DD0009342A /* JSEBullet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804315C5197443DD0009342A /* JSEBullet.swift */; };
 		804315D0197443DD0009342A /* JSEShip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804315C6197443DD0009342A /* JSEShip.swift */; };
 		804315E7197445300009342A /* SpaceBees_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804315E6197445300009342A /* SpaceBees_Tests.swift */; };
+		80ECAE20197721C3009EE705 /* GameStatus.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80ECAE1F197721C3009EE705 /* GameStatus.xib */; };
+		80ECAE22197721D4009EE705 /* GameStatusController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80ECAE21197721D4009EE705 /* GameStatusController.swift */; };
+		80ECAE2419772510009EE705 /* GameStatusDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80ECAE2319772510009EE705 /* GameStatusDelegate.swift */; };
+		80ECAE26197727E6009EE705 /* GameStatusControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80ECAE25197727E6009EE705 /* GameStatusControllerDelegate.swift */; };
 		80FE1A5B19747B4B00BA1334 /* JSEBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FE1A5A19747B4B00BA1334 /* JSEBackground.swift */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +64,10 @@
 		804315E5197445300009342A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		804315E6197445300009342A /* SpaceBees_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceBees_Tests.swift; sourceTree = "<group>"; };
 		80537A8619712A2E0015AA28 /* SpaceBees.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceBees.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		80ECAE1F197721C3009EE705 /* GameStatus.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameStatus.xib; sourceTree = "<group>"; };
+		80ECAE21197721D4009EE705 /* GameStatusController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameStatusController.swift; sourceTree = "<group>"; };
+		80ECAE2319772510009EE705 /* GameStatusDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameStatusDelegate.swift; sourceTree = "<group>"; };
+		80ECAE25197727E6009EE705 /* GameStatusControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameStatusControllerDelegate.swift; sourceTree = "<group>"; };
 		80FE1A5A19747B4B00BA1334 /* JSEBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSEBackground.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,8 +94,10 @@
 			children = (
 				804315BC197443DD0009342A /* AppDelegate.swift */,
 				804315BD197443DD0009342A /* Main.storyboard */,
+				80ECAE1F197721C3009EE705 /* GameStatus.xib */,
 				804315BF197443DD0009342A /* GameScene.sks */,
 				804315C0197443DD0009342A /* GameScene.swift */,
+				80ECAE2319772510009EE705 /* GameStatusDelegate.swift */,
 				804315C1197443DD0009342A /* GameViewController.swift */,
 				804315C2197443DD0009342A /* Images.xcassets */,
 				804315C3197443DD0009342A /* Info.plist */,
@@ -95,6 +105,8 @@
 				804315C5197443DD0009342A /* JSEBullet.swift */,
 				804315C6197443DD0009342A /* JSEShip.swift */,
 				80FE1A5A19747B4B00BA1334 /* JSEBackground.swift */,
+				80ECAE21197721D4009EE705 /* GameStatusController.swift */,
+				80ECAE25197727E6009EE705 /* GameStatusControllerDelegate.swift */,
 			);
 			path = SpaceBees;
 			sourceTree = "<group>";
@@ -227,6 +239,7 @@
 				804315CC197443DD0009342A /* Images.xcassets in Resources */,
 				804315C9197443DD0009342A /* GameScene.sks in Resources */,
 				804315C8197443DD0009342A /* Main.storyboard in Resources */,
+				80ECAE20197721C3009EE705 /* GameStatus.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,7 +264,10 @@
 				804315CB197443DD0009342A /* GameViewController.swift in Sources */,
 				804315C7197443DD0009342A /* AppDelegate.swift in Sources */,
 				804315D0197443DD0009342A /* JSEShip.swift in Sources */,
+				80ECAE26197727E6009EE705 /* GameStatusControllerDelegate.swift in Sources */,
 				804315CF197443DD0009342A /* JSEBullet.swift in Sources */,
+				80ECAE2419772510009EE705 /* GameStatusDelegate.swift in Sources */,
+				80ECAE22197721D4009EE705 /* GameStatusController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
